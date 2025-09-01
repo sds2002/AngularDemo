@@ -7,13 +7,10 @@ import { map } from 'rxjs/operators';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  searchText: string = '';
+  parentMessage = "Hello Child, this is Parent!";
+  messageFromChild = '';
 
-  users = [
-    { name: 'Deepa', role: 'Developer' },
-    { name: 'Arun', role: 'Designer' },
-    { name: 'Priya', role: 'Manager' },
-    { name: 'Vikram', role: 'Tester' },
-    { name: 'Rajesh', role: 'Developer' }
-  ];
+  receiveMessage($event: string) {
+    this.messageFromChild = $event;
+  }
 }

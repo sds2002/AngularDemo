@@ -1,7 +1,21 @@
-fields: string[] → list of properties to check (name and role).
+Explanation
 
-some() → returns true if any field matches the search text.
+@Input()
 
-?.toString() → ensures it works even if property isn’t a string.
+In ChildComponent, @Input() messageFromParent allows the child to receive data from parent.
 
-pure: false → re-runs whenever search input changes.
+In app.component.html, we use [messageFromParent]="parentMessage" to bind data.
+
+@Output()
+
+In ChildComponent, @Output() messageEvent = new EventEmitter<string>() defines an event.
+
+When the button is clicked, sendMessageToParent() emits a message.
+
+In the parent template, (messageEvent)="receiveMessage($event)" listens for that event and triggers the receiveMessage method.
+
+Flow
+
+Parent → Child (via @Input())
+
+Child → Parent (via @Output() event emitter)

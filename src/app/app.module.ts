@@ -3,23 +3,12 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello/hello.component';
-import { CardComponent } from './card/card.component';
-import { ReversePipe } from './reverse.pipe';
-import { TruncatePipe } from './truncate.pipe';
-import { FilterPipe } from './filter.pipe';
-import { MultiFilterPipe } from './multi-filter.pipe';
-
+import { ChildComponent } from './child/child.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HelloComponent,
-    CardComponent,
-    ReversePipe,
-    TruncatePipe,
-    FilterPipe,
-    MultiFilterPipe
-  ],
+    ChildComponent,
+    ],
   imports: [
     BrowserModule,
     FormsModule

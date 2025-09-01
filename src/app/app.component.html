@@ -1,11 +1,11 @@
-<h1>Multi-field Filter Pipe Demo</h1>
+<div class="parent-box">
+  <h2>Parent Component</h2>
 
-<!-- Search Box -->
-<input type="text" [(ngModel)]="searchText" placeholder="Search by name or role" />
+  <!-- Passing data to Child using Input -->
+  <app-child 
+    [messageFromParent]="parentMessage" 
+    (messageEvent)="receiveMessage($event)">
+  </app-child>
 
-<!-- Display Filtered Users -->
-<ul>
-  <li *ngFor="let user of users | multiFilter:searchText:['name','role']">
-    {{ user.name }} - {{ user.role }}
-  </li>
-</ul>
+  <p><strong>Message from Child:</strong> {{ messageFromChild }}</p>
+</div>
