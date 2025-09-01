@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  items = ['Angular', 'React', 'Vue', 'Svelte'];
+  languages = ['Angular', 'React', 'Vue', 'Svelte'];
 }
