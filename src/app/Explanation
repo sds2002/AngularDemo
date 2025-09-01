@@ -1,15 +1,17 @@
-What is AsyncPipe?
+What is a Custom Pipe?
 
-Angular’s AsyncPipe is used to subscribe to Observables or Promises directly in templates.
+A custom pipe lets you create your own transformation logic.
 
-It automatically subscribes and unsubscribes → prevents memory leaks.
+Example: reversing a string, filtering an array, formatting text, etc.
 
-It also updates the view whenever new data is emitted.
+Pipe → Decorator that marks this class as a pipe.
 
-🛠 Hands-on Example: AsyncPipe
+PipeTransform → Interface that requires transform() method.
 
-We’ll show both:
+transform(value: any, ...args: any[]): any → where we write the logic.
 
-Observable (interval)
+In this case:
 
-Promise (delayed response)
+If no value → return empty string.
+
+Otherwise → split string into chars → reverse → join again.

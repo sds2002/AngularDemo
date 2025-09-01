@@ -5,12 +5,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
 import { CardComponent } from './card/card.component';
+import { ReversePipe } from './reverse.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloComponent,
-    CardComponent
+    CardComponent,
+    ReversePipe
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,7 @@
-<h1>AsyncPipe Demo</h1>
+<h1>Custom Pipe Demo</h1>
 
-<!-- 1. Counter Observable -->
-<p><b>Counter (Observable):</b> {{ counter$ | async }}</p>
+<!-- Original string -->
+<p><b>Original:</b> Angular is great!</p>
 
-<!-- 2. Transformed Observable -->
-<p><b>Message (Observable):</b> {{ message$ | async }}</p>
-
-<!-- 3. Promise Example -->
-<p><b>Promise Result:</b> {{ dataPromise | async }}</p>
+<!-- Reversed string -->
+<p><b>Reversed:</b> {{ 'Angular is great!' | reverse }}</p>
