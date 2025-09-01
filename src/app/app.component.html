@@ -1,4 +1,9 @@
-<input #nameInput placeholder="Enter your name">
-<button (click)="username = nameInput.value">Update</button>
+<!-- Lets you create reusable components where the parent provides the inner content. -->
+<app-card>
+  <h2>Angular Templates</h2>
+  <p>This is inside a projected card component!</p>
+</app-card>
 
-<p>Hello {{ username }}</p>
+<app-card>
+  <p>Another card with custom content.</p>
+</app-card>
