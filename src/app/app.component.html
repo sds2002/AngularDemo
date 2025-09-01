@@ -1,2 +1,9 @@
-<input #myInput placeholder="Type something">
-<button (click)="logInput()">Log Input</button>
+<ng-template #loading>
+  <p>Loading data...</p>
+</ng-template>
+
+<div *ngIf="data; else loading">
+  <p>Data: {{ data }}</p>
+</div>
+
+<button (click)="loadData()">Load Data</button>

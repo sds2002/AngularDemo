@@ -5,16 +5,14 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  @ViewChild('myInput') inputElement!: ElementRef;
+  data: string | null = null;
 
-  logInput() {
-    console.log(this.inputElement.nativeElement.value);
+  loadData() {
+    setTimeout(() => {
+      this.data = 'Fetched data from server!';
+    }, 2000);
   }
 }
-// Explanation
+// <ng-template> is hidden until used.
 
-// #myInput → creates a reference variable for that input.
-
-// @ViewChild('myInput') → grabs it in TypeScript.
-
-// You can now read or manipulate DOM directly (focus(), value, etc.).
+// *ngIf="data; else loading" → shows loading template when data is null.
