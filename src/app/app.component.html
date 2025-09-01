@@ -1,47 +1,31 @@
-<!-- Interpolation -->
-<h1>Welcome to {{ title }}</h1>
-<p>User: {{ username }}</p>
+<!-- 
+  You can put small JavaScript-like expressions inside {{ }}: 
+  Only simple expressions are allowed (no assignments, loops, or new objects).
+-->
+<p>{{ username.toUpperCase() }}</p>
+<p>{{ items.length }}</p>
+<p>{{ isLoggedIn ? 'Welcome!' : 'Please log in' }}</p>
 
-<!-- Property Binding -->
-<input [value]="username" />
+<!-- Statements are used in event bindings: -->
+<button (click)="isLoggedIn = !isLoggedIn">Toggle Login</button>
 
-<!-- Event Binding -->
-<button (click)="username='Guest'">Change Name</button>
+<!-- You can create variables inside a template using #: -->
+<input #nameInput type="text">
+<button (click)="username = nameInput.value">Update</button>
+<p>Hello {{ username }}</p>
 
-<!-- Two-Way Binding -->
-<input [(ngModel)]="username" placeholder="Enter your name" />
+<!-- [ngSwitch] + *ngSwitchCase → Switch-case rendering -->
+<div [ngSwitch]="role">
+  <p *ngSwitchCase="'admin'">Welcome Admin</p>
+  <p *ngSwitchCase="'user'">Welcome User</p>
+  <p *ngSwitchDefault>Unknown Role</p>
+</div>
 
-<!-- *ngIf Example -->
-<p *ngIf="isLoggedIn">You are logged in</p>
-<p *ngIf="!isLoggedIn">Please log in</p>
+<!-- Change appearance or behavior of elements: -->
+<p [ngStyle]="{color: isLoggedIn ? 'green' : 'red'}">
+  Status: {{ isLoggedIn ? 'Online' : 'Offline' }}
+</p>
 
-<!-- *ngFor Example -->
-<ul>
-  <li *ngFor="let item of items">{{ item }}</li>
-</ul>
-
-<!-- Pipes Example -->
-<p>{{ username | uppercase }}</p>
-<p>{{ 3.14159 | number:'1.2-2' }}</p>
-<p>{{ today | date:'fullDate' }}</p>
-
-
-<!-- Interpolation ({{ }}) → Displays component data inside HTML.
-👉 {{ title }} shows "Angular Templates Demo".
-
-Property Binding ([ ]) → Binds an element property to a variable.
-👉 [value]="username" sets the input value.
-
-Event Binding (( )) → Executes code when an event happens.
-👉 (click)="username='Guest'" changes value on button click.
-
-Two-Way Binding ([( )]) → Syncs data both ways.
-👉 [(ngModel)]="username" updates UI and variable together.
-⚠️ Requires FormsModule in app.module.ts.
-
-Structural Directives (*ngIf, *ngFor) → Change DOM structure.
-👉 *ngIf="isLoggedIn" conditionally shows elements.
-👉 *ngFor="let item of items" loops through array.
-
-Pipes (|) → Transform data in template.
-👉 username | uppercase → Converts name to uppercase. -->
+<p [ngClass]="{ active: isLoggedIn, inactive: !isLoggedIn }">
+  User {{ username }}
+</p>

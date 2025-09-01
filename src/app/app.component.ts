@@ -11,4 +11,6 @@ export class AppComponent {
   items = ['Angular', 'React', 'Vue'];
   isLoggedIn = true;
   today: Date = new Date();
+  role: string = 'admin';
+  user: any;
 }
