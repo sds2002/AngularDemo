@@ -5,14 +5,13 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  data: string | null = null;
+  isLoggedIn = true;
+  username = 'Deepa';
 
-  loadData() {
-    setTimeout(() => {
-      this.data = 'Fetched data from server!';
-    }, 2000);
+  logout() {
+    this.isLoggedIn = false;
   }
 }
-// <ng-template> is hidden until used.
+// ng-container does not create extra DOM elements.
 
-// *ngIf="data; else loading" → shows loading template when data is null.
+// It’s just a logical wrapper for directives.

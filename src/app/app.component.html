@@ -1,9 +1,4 @@
-<ng-template #loading>
-  <p>Loading data...</p>
-</ng-template>
-
-<div *ngIf="data; else loading">
-  <p>Data: {{ data }}</p>
-</div>
-
-<button (click)="loadData()">Load Data</button>
+<ng-container *ngIf="isLoggedIn">
+  <p>Welcome {{ username }}</p>
+  <button (click)="logout()">Logout</button>
+</ng-container>
