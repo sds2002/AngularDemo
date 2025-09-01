@@ -1,9 +1,19 @@
-Benefits of async Pipe Version
+Key points:
 
-Less code: No manual subscribe or unsubscribe.
+Uses async pipe everywhere for reactive subscriptions.
 
-Automatic cleanup: Prevents memory leaks.
+Shows loading, error, and empty states automatically.
 
-Reactive style: Works well with RxJS streams.
+Refresh button triggers the service to reload users.
 
-Type-safe: Still uses the User interface everywhere.
+4. Benefits of BehaviorSubject Approach
+
+Centralized state: Users, loading, and error state live in service.
+
+Reactive & clean components: Components just bind Observables.
+
+Error handling: Automatic and centralized.
+
+Supports multiple components: Any component can subscribe to the same users$.
+
+Easy refresh: Just call refreshUsers() from anywhere.

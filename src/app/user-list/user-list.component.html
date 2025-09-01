@@ -1,13 +1,21 @@
 <h2>User List</h2>
 
-<ul *ngIf="users$ | async as users; else loading">
+<!-- Loading Indicator -->
+<div *ngIf="loading$ | async">Loading users...</div>
+
+<!-- Error Message -->
+<div *ngIf="error$ | async as error" style="color:red">{{ error }}</div>
+
+<!-- User List -->
+<ul *ngIf="users$ | async as users">
   <li *ngFor="let user of users">
     <strong>{{ user.name }}</strong> ({{ user.email }})
     <span *ngIf="user.username"> - @{{ user.username }}</span>
     <span *ngIf="user.website"> - 🌐 {{ user.website }}</span>
   </li>
+
+  <!-- Empty state -->
+  <li *ngIf="users.length === 0 && !(loading$ | async)">No users available.</li>
 </ul>
 
-<ng-template #loading>
-  <div>Loading users...</div>
-</ng-template>
+<button (click)="refresh()">Refresh Users</button>

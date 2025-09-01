@@ -10,11 +10,17 @@ import { UserService } from '../services/user.service';
 })
 export class UserListComponent {
 
-  users$: Observable<User[]>; // Observable instead of array
-  error: string = '';
+  users$: Observable<User[]>;
+  loading$: Observable<boolean>;
+  error$: Observable<string>;
 
   constructor(private userService: UserService) {
-    this.users$ = this.userService.getUsers();
+    this.users$ = this.userService.users$;
+    this.loading$ = this.userService.loading$;
+    this.error$ = this.userService.error$;
   }
 
+  refresh(): void {
+    this.userService.refreshUsers();
+  }
 }
