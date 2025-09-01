@@ -1,11 +1,9 @@
-Key Points
+Key Takeaways
 
-Type safety: User ensures the data structure is consistent.
+Interfaces + HTTP: Ensures API response is typed correctly.
 
-Services & Interfaces: Using interfaces in services ensures components get expected data.
+Observable subscription: Handles async data safely.
 
-IDE benefits: Auto-completion for user.name, user.email, etc.
+Error handling: Using subscribe({ next, error }) to manage API failures.
 
-Scalable: If the API changes, updating the interface updates types across the app.
-
-This setup is fully functional. When you run ng serve, you'll see a list of users with active/inactive status styled.
+Scalable: Easy to extend User interface if API adds more fields.

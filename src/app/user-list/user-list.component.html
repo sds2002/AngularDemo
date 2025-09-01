@@ -1,9 +1,12 @@
 <h2>User List</h2>
-<ul>
+
+<div *ngIf="loading">Loading users...</div>
+<div *ngIf="error" style="color:red">{{ error }}</div>
+
+<ul *ngIf="!loading && !error">
   <li *ngFor="let user of users">
-    <strong>{{ user.name }}</strong> ({{ user.email }}) 
-    <span [ngClass]="{'active': user.isActive, 'inactive': !user.isActive}">
-      {{ user.isActive ? 'Active' : 'Inactive' }}
-    </span>
+    <strong>{{ user.name }}</strong> ({{ user.email }})
+    <span *ngIf="user.username"> - @{{ user.username }}</span>
+    <span *ngIf="user.website"> - 🌐 {{ user.website }}</span>
   </li>
 </ul>

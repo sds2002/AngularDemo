@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { User } from '../models/user.model';
 
 @Injectable({
@@ -6,15 +9,20 @@ import { User } from '../models/user.model';
 })
 export class UserService {
 
-  private users: User[] = [
-    { id: 1, name: 'Alice', email: 'alice@example.com', isActive: true },
-    { id: 2, name: 'Bob', email: 'bob@example.com', isActive: false },
-    { id: 3, name: 'Charlie', email: 'charlie@example.com', isActive: true },
-  ];
+  private apiUrl = 'https://jsonplaceholder.typicode.com/users';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getUsers(): User[] {
-    return this.users;
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.apiUrl).pipe(
+      map(users => users.map(user => ({
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        username: user.username,
+        phone: user.phone,
+        website: user.website
+      })))
+    );
   }
 }

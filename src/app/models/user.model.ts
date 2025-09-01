@@ -2,6 +2,8 @@ export interface User {
     id: number;
     name: string;
     email: string;
-    isActive: boolean;
+    username?: string; // optional
+    phone?: string;    // optional
+    website?: string;  // optional
   }
   
