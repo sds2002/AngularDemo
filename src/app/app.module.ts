@@ -8,6 +8,7 @@ import { CardComponent } from './card/card.component';
 import { ReversePipe } from './reverse.pipe';
 import { TruncatePipe } from './truncate.pipe';
 import { FilterPipe } from './filter.pipe';
+import { MultiFilterPipe } from './multi-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FilterPipe } from './filter.pipe';
     CardComponent,
     ReversePipe,
     TruncatePipe,
-    FilterPipe
+    FilterPipe,
+    MultiFilterPipe
   ],
   imports: [
     BrowserModule,

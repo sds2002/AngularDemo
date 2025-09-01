@@ -1,11 +1,11 @@
-<h1>Custom Filter Pipe Demo</h1>
+<h1>Multi-field Filter Pipe Demo</h1>
 
 <!-- Search Box -->
-<input type="text" [(ngModel)]="searchText" placeholder="Search by name" />
+<input type="text" [(ngModel)]="searchText" placeholder="Search by name or role" />
 
 <!-- Display Filtered Users -->
 <ul>
-  <li *ngFor="let user of users | filter:searchText:'name'">
+  <li *ngFor="let user of users | multiFilter:searchText:['name','role']">
     {{ user.name }} - {{ user.role }}
   </li>
 </ul>
