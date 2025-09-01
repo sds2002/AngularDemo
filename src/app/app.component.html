@@ -1,6 +1,2 @@
-<ul>
-  <li *ngFor="let item of items; trackBy: trackByFn">{{ item.name }}</li>
-  <!-- <li *ngFor="let item of items">{{ item }}</li> -->
-</ul>
-
-<button (click)="updateList()">Update List</button>
+<input #myInput placeholder="Type something">
+<button (click)="logInput()">Log Input</button>

@@ -1,27 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  items = [
-    { id: 1, name: 'Angular' },
-    { id: 2, name: 'React' },
-    { id: 3, name: 'Vue' }
-  ];
+  @ViewChild('myInput') inputElement!: ElementRef;
 
-  // trackBy function
-  trackByFn(index: number, item: any): number {
-    return item.id; // unique identifier
-  }
-
-  updateList() {
-    this.items = [
-      { id: 1, name: 'Angular' },
-      { id: 2, name: 'React (updated)' },
-      { id: 3, name: 'Vue' },
-      { id: 4, name: 'Svelte' }
-    ];
+  logInput() {
+    console.log(this.inputElement.nativeElement.value);
   }
 }
+// Explanation
+
+// #myInput → creates a reference variable for that input.
+
+// @ViewChild('myInput') → grabs it in TypeScript.
+
+// You can now read or manipulate DOM directly (focus(), value, etc.).
