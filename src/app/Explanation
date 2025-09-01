@@ -1,17 +1,11 @@
-How It Works
+Key Points
 
-CarService holds cars in a BehaviorSubject.
+Type safety: User ensures the data structure is consistent.
 
-Components subscribe to cars$.
+Services & Interfaces: Using interfaces in services ensures components get expected data.
 
-Whenever a car is added/updated, carsSubject.next() pushes the latest array to all subscribers.
+IDE benefits: Auto-completion for user.name, user.email, etc.
 
-Both Dashboard and Garage stay in sync automatically.
+Scalable: If the API changes, updating the interface updates types across the app.
 
-✅ Now you have reactive runtime polymorphism in Angular:
-
-Shared state via service
-
-Reactive updates with RxJS
-
-Multiple components see changes instantly
+This setup is fully functional. When you run ng serve, you'll see a list of users with active/inactive status styled.
