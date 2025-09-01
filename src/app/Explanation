@@ -1,28 +1,25 @@
 Explanation
 
-Passing Context
+Built-in Pipes are pure functions that transform data.
 
-context: { $implicit: user, index: i }
+uppercase → converts string to uppercase
 
+date → formats a Date object
 
-$implicit: user → makes user the default input for the template.
+currency → formats number as currency
 
-index: i → passes the loop index as a named variable.
+percent → converts number to percentage
 
-Capturing Context with let-
+slice → slices array/string
 
-<ng-template #userTemplate let-person let-idx="index">
+json → pretty-prints object
 
+Async Pipe
 
-let-person → captures $implicit (so person = user).
+Handles Observable and Promise automatically.
 
-let-idx="index" → captures the index property.
+Subscribes/unsubscribes automatically → no memory leaks.
 
-Usage in Template
+Useful for data coming from APIs (HttpClient).
 
-{{ idx + 1 }}. {{ person.name }} - {{ person.role }}
-
-
-idx is the loop index (0,1,2).
-
-person is the user object.
+✅ With this, you now understand Built-in Pipes + Async Pipe in Angular with full code and output.

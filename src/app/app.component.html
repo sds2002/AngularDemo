@@ -1,17 +1,28 @@
-<div class="container">
-  <h2>Template Input Variables (let- Example)</h2>
+<h1>{{ title }}</h1>
 
-  <!-- Loop through users and use ngTemplateOutlet -->
-  <div *ngFor="let user of users; let i = index">
-    <ng-container 
-      *ngTemplateOutlet="userTemplate; context: { $implicit: user, index: i }">
-    </ng-container>
-  </div>
+<!-- 🔹 Built-in Pipes -->
 
-  <!-- Define the reusable template -->
-  <ng-template #userTemplate let-person let-idx="index">
-    <div class="card">
-      <strong>{{ idx + 1 }}.</strong> {{ person.name }} - {{ person.role }}
-    </div>
-  </ng-template>
-</div>
+<p><b>Uppercase Pipe:</b> {{ name | uppercase }}</p>
+<p><b>Lowercase Pipe:</b> {{ name | lowercase }}</p>
+<p><b>Titlecase Pipe:</b> {{ name | titlecase }}</p>
+
+<p><b>Date Pipe (default):</b> {{ today | date }}</p>
+<p><b>Date Pipe (custom format):</b> {{ today | date:'fullDate' }}</p>
+<p><b>Date + Time:</b> {{ today | date:'short' }}</p>
+
+<p><b>Currency Pipe:</b> {{ price | currency:'INR' }}</p>
+<p><b>Currency (USD):</b> {{ price | currency:'USD':'symbol-narrow' }}</p>
+
+<p><b>Percent Pipe:</b> {{ percentage | percent }}</p>
+<p><b>Percent (2 decimal):</b> {{ percentage | percent:'1.2-2' }}</p>
+
+<p><b>Slice Pipe (first 2 items):</b> {{ items | slice:0:2 }}</p>
+<p><b>JSON Pipe:</b> {{ items | json }}</p>
+
+<hr />
+
+<!-- 🔹 Async Pipe -->
+
+<h2>Async Pipe Example</h2>
+<p><b>Observable Data:</b> {{ dataObservable | async }}</p>
+<p><b>Promise Data (wait 3 sec):</b> {{ dataPromise | async }}</p>
