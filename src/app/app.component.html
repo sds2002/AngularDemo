@@ -1,31 +1,8 @@
-<!-- 
-  You can put small JavaScript-like expressions inside {{ }}: 
-  Only simple expressions are allowed (no assignments, loops, or new objects).
--->
-<p>{{ username.toUpperCase() }}</p>
-<p>{{ items.length }}</p>
-<p>{{ isLoggedIn ? 'Welcome!' : 'Please log in' }}</p>
+<!-- Normal access (works fine) -->
+<p>User City: {{ user.address.city }}</p>
 
-<!-- Statements are used in event bindings: -->
-<button (click)="isLoggedIn = !isLoggedIn">Toggle Login</button>
+<!-- Without safe navigation - causes ERROR if nullUser is null -->
+<!-- <p>{{ nullUser.address.city }}</p> -->
 
-<!-- You can create variables inside a template using #: -->
-<input #nameInput type="text">
-<button (click)="username = nameInput.value">Update</button>
-<p>Hello {{ username }}</p>
-
-<!-- [ngSwitch] + *ngSwitchCase → Switch-case rendering -->
-<div [ngSwitch]="role">
-  <p *ngSwitchCase="'admin'">Welcome Admin</p>
-  <p *ngSwitchCase="'user'">Welcome User</p>
-  <p *ngSwitchDefault>Unknown Role</p>
-</div>
-
-<!-- Change appearance or behavior of elements: -->
-<p [ngStyle]="{color: isLoggedIn ? 'green' : 'red'}">
-  Status: {{ isLoggedIn ? 'Online' : 'Offline' }}
-</p>
-
-<p [ngClass]="{ active: isLoggedIn, inactive: !isLoggedIn }">
-  User {{ username }}
-</p>
+<!-- With safe navigation -->
+<p>Safe City: {{ nullUser?.address?.city }}</p>
