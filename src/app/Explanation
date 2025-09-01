@@ -1,15 +1,19 @@
 Explanation
 
-ElectricCar extends Car → inherits all Car properties/methods.
+cars: Car[] → can hold both Car and ElectricCar objects (polymorphism).
 
-super(...) → calls parent constructor.
+Angular template calls car.displayInfo() →
 
-Method overriding → displayInfo() was redefined to show battery info.
+For Car, it shows normal info.
 
-New methods → chargeBattery() and useBattery() only exist in ElectricCar.
+For ElectricCar, the overridden method runs, showing battery info. ✅
 
-✅ Now you have inheritance in Angular with TypeScript classes:
+chargeIfEV() uses instanceof to check if the object is ElectricCar before charging.
 
-Base Car → normal cars.
+✅ Now, your dashboard will:
 
-Derived ElectricCar → EV-specific logic.
+List all cars dynamically.
+
+Show correct info depending on whether it’s a Car or ElectricCar.
+
+Use the same array & template thanks to polymorphism.

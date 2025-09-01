@@ -1,22 +1,11 @@
-<h1>🚗 Car Dashboard with Inheritance</h1>
+<h1>🚗 Car Dashboard (Polymorphism)</h1>
 
-<!-- Normal Car -->
-<div>
-  <h2>{{ car1.displayInfo() }}</h2>
-  <button (click)="accelerateCar(car1)">Accelerate</button>
-  <button (click)="brakeCar(car1)">Brake</button>
+<div *ngFor="let car of cars">
+  <h2>{{ car.displayInfo() }}</h2>
+  <button (click)="accelerateCar(car)">Accelerate</button>
+  <button (click)="brakeCar(car)">Brake</button>
+  <button (click)="chargeIfEV(car)">Charge (only EVs)</button>
+  <hr>
 </div>
-
-<hr>
-
-<!-- Electric Car -->
-<div>
-  <h2>{{ ev1.displayInfo() }}</h2>
-  <button (click)="accelerateCar(ev1)">Accelerate</button>
-  <button (click)="brakeCar(ev1)">Brake</button>
-  <button (click)="chargeEV(ev1)">Charge Battery</button>
-</div>
-
-<hr>
 
 <p><strong>Status:</strong> {{ message }}</p>

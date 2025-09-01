@@ -8,11 +8,13 @@ import { ElectricCar } from './models/electric-car.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // Normal Car
-  car1 = new Car('Toyota', 'Corolla', 2021);
-
-  // Electric Car (inherits from Car)
-  ev1 = new ElectricCar('Tesla', 'Model 3', 2023);
+  // ✅ Polymorphic array (mix of Car and ElectricCar)
+  cars: Car[] = [
+    new Car('Toyota', 'Corolla', 2021),
+    new Car('Honda', 'Civic', 2022),
+    new ElectricCar('Tesla', 'Model 3', 2023),
+    new ElectricCar('Nissan', 'Leaf', 2020)
+  ];
 
   message: string = '';
 
@@ -26,8 +28,12 @@ export class AppComponent {
     this.message = `${car.displayInfo()} slowed down to ${car.getSpeed()} km/h.`;
   }
 
-  chargeEV(ev: ElectricCar) {
-    ev.chargeBattery(20);
-    this.message = `${ev.displayInfo()} (charged battery)`;
+  chargeIfEV(car: Car) {
+    if (car instanceof ElectricCar) {
+      (car as ElectricCar).chargeBattery(20);
+      this.message = `${car.displayInfo()} (battery charged)`;
+    } else {
+      this.message = `${car.displayInfo()} is not electric.`;
+    }
   }
 }

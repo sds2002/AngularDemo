@@ -1,4 +1,3 @@
-// Base Car class
 export class Car {
   brand: string;
   model: string;
@@ -27,4 +26,3 @@ export class Car {
     return `${this.year} ${this.brand} ${this.model}`;
   }
 }
-
