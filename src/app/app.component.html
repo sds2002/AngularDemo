@@ -1,11 +1,9 @@
-<h1>🚗 Car Dashboard (Polymorphism)</h1>
+<h1>Runtime Polymorphism Demo</h1>
 
 <div *ngFor="let car of cars">
-  <h2>{{ car.displayInfo() }}</h2>
-  <button (click)="accelerateCar(car)">Accelerate</button>
-  <button (click)="brakeCar(car)">Brake</button>
-  <button (click)="chargeIfEV(car)">Charge (only EVs)</button>
-  <hr>
+  <p>{{ car.brand }} {{ car.model }}</p>
+  <button (click)="testDrive(car)">Test Drive</button>
 </div>
 
-<p><strong>Status:</strong> {{ message }}</p>
+<hr>
+<p><strong>Result:</strong> {{ message }}</p>

@@ -1,19 +1,12 @@
-Explanation
+What Happens?
 
-cars: Car[] → can hold both Car and ElectricCar objects (polymorphism).
+If you click Test Drive on Toyota Corolla →
+→ calls Car.drive() →
+→ "Toyota Corolla is driving normally 🚗"
 
-Angular template calls car.displayInfo() →
+If you click Test Drive on Tesla Model 3 →
+→ calls overridden method ElectricCar.drive() →
+→ "Tesla Model 3 is driving silently ⚡"
 
-For Car, it shows normal info.
-
-For ElectricCar, the overridden method runs, showing battery info. ✅
-
-chargeIfEV() uses instanceof to check if the object is ElectricCar before charging.
-
-✅ Now, your dashboard will:
-
-List all cars dynamically.
-
-Show correct info depending on whether it’s a Car or ElectricCar.
-
-Use the same array & template thanks to polymorphism.
+✅ This is runtime polymorphism in action:
+Even though the array is typed as Car[], at runtime Angular/TypeScript dispatches the actual method depending on the object’s type (Car vs. ElectricCar).
