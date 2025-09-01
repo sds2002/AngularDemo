@@ -1,13 +1,12 @@
-<!-- Here ng-container works as a wrapper for ngSwitch, but nothing is added to DOM. -->
-<h3>User List</h3>
+<!-- Grouping Multiple Elements in *ngIf -->
+<!-- Notice that inside ng-container, we grouped two elements (p + button) under a single *ngIf. Without ng-container, Angular would throw an error (since you can’t apply *ngIf to multiple elements directly). -->
 
-<ul>
-  <li *ngFor="let user of users">
-    {{ user.name }} -
-    <ng-container [ngSwitch]="user.role">
-      <span *ngSwitchCase="'admin'">👑 Admin</span>
-      <span *ngSwitchCase="'user'">🙋 User</span>
-      <span *ngSwitchDefault>👀 Guest</span>
-    </ng-container>
-  </li>
-</ul>
+<ng-container *ngIf="isLoggedIn; else loggedOut">
+  <p>Welcome back!</p>
+  <button>Logout</button>
+</ng-container>
+
+<ng-template #loggedOut>
+  <p>Please login to continue</p>
+  <button>Login</button>
+</ng-template>

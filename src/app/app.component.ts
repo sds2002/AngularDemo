@@ -5,11 +5,11 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  // app.component.ts
-users = [
-  { name: 'Deepa', role: 'admin' },
-  { name: 'Arun', role: 'user' },
-  { name: 'Priya', role: 'guest' }
-];
+  // Flag to control login state
+  isLoggedIn = false;
 
+  // Method to toggle login/logout
+  toggleLogin() {
+    this.isLoggedIn = !this.isLoggedIn;
+  }
 }
