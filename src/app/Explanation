@@ -1,69 +1,17 @@
-Summary: Angular Generics Example
-Purpose
+Now your Angular app covers:
 
-Demonstrates how to use TypeScript generics in Angular to create a reusable, type-safe service for fetching data from APIs.
+Basic Types (string, number, boolean)
 
-Works for any model (e.g., User, Product) without duplicating code.
+Arrays & Tuples
 
-1. Models
+Enums
 
-User and Product interfaces define the structure of data objects.
+Any & Unknown
 
-interface User { id: number; name: string; email: string; }
-interface Product { id: number; title: string; price: number; }
+Interfaces
 
-2. Generic Service
+Function Types
 
-GenericApiService uses TypeScript generics (<T>) to handle multiple types.
+Type Aliases & Union Types
 
-getData<T>(url: string): Observable<T[]> { ... }
-getItem<T>(url: string, id: number): Observable<T> { ... }
-
-
-✅ Benefits:
-
-One service handles multiple models.
-
-Type-safe API calls.
-
-3. Component
-
-AppComponent uses the generic service to fetch and display User[] and Product[].
-
-this.api.getData<User>(url).subscribe(data => this.users = data);
-this.api.getData<Product>(url).subscribe(data => this.products = data);
-
-
-Uses templateUrl to separate HTML (app.component.html) from TypeScript.
-
-4. Module
-
-AppModule imports BrowserModule and HttpClientModule.
-
-Declares and bootstraps AppComponent.
-
-@NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, HttpClientModule],
-  bootstrap: [AppComponent]
-})
-
-5. HTML Template
-
-Displays lists of users and products using *ngFor.
-
-<h2>Users</h2>
-<ul><li *ngFor="let user of users">{{ user.name }}</li></ul>
-
-<h2>Products</h2>
-<ul><li *ngFor="let product of products">{{ product.title }}</li></ul>
-
-Key Takeaways
-
-Generics (<T>) allow writing reusable and type-safe services.
-
-HttpClient + generics = clean API data fetching.
-
-Separation of concerns: Logic in TypeScript, template in HTML.
-
-Avoids repeating similar code for different models.
+HTTP + Interfaces
