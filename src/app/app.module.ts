@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
 import { CardComponent } from './card/card.component';
 import { ReversePipe } from './reverse.pipe';
+import { TruncatePipe } from './truncate.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloComponent,
     CardComponent,
-    ReversePipe
+    ReversePipe,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,

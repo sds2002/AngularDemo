@@ -1,17 +1,9 @@
-What is a Custom Pipe?
+⚡ Key Takeaways
 
-A custom pipe lets you create your own transformation logic.
+Custom Pipes = reusable transformation logic in templates.
 
-Example: reversing a string, filtering an array, formatting text, etc.
+Must implement PipeTransform and define transform() method.
 
-Pipe → Decorator that marks this class as a pipe.
+Can accept arguments (like truncate:15).
 
-PipeTransform → Interface that requires transform() method.
-
-transform(value: any, ...args: any[]): any → where we write the logic.
-
-In this case:
-
-If no value → return empty string.
-
-Otherwise → split string into chars → reverse → join again.
+Use them when built-in pipes don’t fit your needs.
