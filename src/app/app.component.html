@@ -1,3 +1,47 @@
-<h1>Main App Component</h1>
-<!-- <app-hello></app-hello> -->
-<app-hello [username]="'Deepa'" (nameChanged)="onNameChanged($event)"></app-hello>
+<!-- Interpolation -->
+<h1>Welcome to {{ title }}</h1>
+<p>User: {{ username }}</p>
+
+<!-- Property Binding -->
+<input [value]="username" />
+
+<!-- Event Binding -->
+<button (click)="username='Guest'">Change Name</button>
+
+<!-- Two-Way Binding -->
+<input [(ngModel)]="username" placeholder="Enter your name" />
+
+<!-- *ngIf Example -->
+<p *ngIf="isLoggedIn">You are logged in</p>
+<p *ngIf="!isLoggedIn">Please log in</p>
+
+<!-- *ngFor Example -->
+<ul>
+  <li *ngFor="let item of items">{{ item }}</li>
+</ul>
+
+<!-- Pipes Example -->
+<p>{{ username | uppercase }}</p>
+<p>{{ 3.14159 | number:'1.2-2' }}</p>
+<p>{{ today | date:'fullDate' }}</p>
+
+
+<!-- Interpolation ({{ }}) → Displays component data inside HTML.
+👉 {{ title }} shows "Angular Templates Demo".
+
+Property Binding ([ ]) → Binds an element property to a variable.
+👉 [value]="username" sets the input value.
+
+Event Binding (( )) → Executes code when an event happens.
+👉 (click)="username='Guest'" changes value on button click.
+
+Two-Way Binding ([( )]) → Syncs data both ways.
+👉 [(ngModel)]="username" updates UI and variable together.
+⚠️ Requires FormsModule in app.module.ts.
+
+Structural Directives (*ngIf, *ngFor) → Change DOM structure.
+👉 *ngIf="isLoggedIn" conditionally shows elements.
+👉 *ngFor="let item of items" loops through array.
+
+Pipes (|) → Transform data in template.
+👉 username | uppercase → Converts name to uppercase. -->

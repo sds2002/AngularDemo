@@ -2,14 +2,13 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  templateUrl: './app.component.html', // External template file
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'AngularDemo';
-
-  onNameChanged(newName: string) {
-    console.log('Name updated from child:', newName);
-  }
-
+  title = 'Angular Templates Demo';
+  username = 'Deepa';
+  items = ['Angular', 'React', 'Vue'];
+  isLoggedIn = true;
+  today: Date = new Date();
 }
