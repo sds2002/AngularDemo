@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularDemo';
+
+  onNameChanged(newName: string) {
+    console.log('Name updated from child:', newName);
+  }
+
 }

@@ -1,2 +1,3 @@
 <h1>Main App Component</h1>
-<app-hello></app-hello>
+<!-- <app-hello></app-hello> -->
+<app-hello [username]="'Deepa'" (nameChanged)="onNameChanged($event)"></app-hello>

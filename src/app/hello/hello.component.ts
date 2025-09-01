@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-hello',
@@ -6,9 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./hello.component.css']
 })
 export class HelloComponent {
-  username: string = 'Infotel';
+  // username: string = 'Infotel';
+
+  // changeName() {
+  //   this.username = 'Angular Learner';
+  // }
+
+  @Input() username: string = '';
+  @Output() nameChanged = new EventEmitter<string>();
 
   changeName() {
-    this.username = 'Angular Learner';
+    this.username = 'Updated User';
+    this.nameChanged.emit(this.username);
   }
 }
