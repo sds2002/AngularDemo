@@ -1,12 +1,13 @@
-<!-- app.component.html -->
-<h2>Welcome to ng-container Example</h2>
+<!-- Here ng-container works as a wrapper for ngSwitch, but nothing is added to DOM. -->
+<h3>User List</h3>
 
-<!-- Without ng-container (adds extra <div>) -->
-<div *ngIf="isLoggedIn">
-  <p>User is logged in!</p>
-</div>
-
-<!-- With ng-container (no extra element in DOM) -->
-<ng-container *ngIf="isLoggedIn">
-  <p>User is logged in using ng-container!</p>
-</ng-container>
+<ul>
+  <li *ngFor="let user of users">
+    {{ user.name }} -
+    <ng-container [ngSwitch]="user.role">
+      <span *ngSwitchCase="'admin'">👑 Admin</span>
+      <span *ngSwitchCase="'user'">🙋 User</span>
+      <span *ngSwitchDefault>👀 Guest</span>
+    </ng-container>
+  </li>
+</ul>

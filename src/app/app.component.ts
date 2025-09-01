@@ -5,8 +5,11 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  isLoggedIn = true;
-}
+  // app.component.ts
+users = [
+  { name: 'Deepa', role: 'admin' },
+  { name: 'Arun', role: 'user' },
+  { name: 'Priya', role: 'guest' }
+];
 
-// Open browser dev tools → you’ll see that ng-container doesn’t appear 
-// in the DOM, only the <p> is rendered.
+}
