@@ -1,12 +1,17 @@
-What Happens?
+How It Works
 
-If you click Test Drive on Toyota Corolla →
-→ calls Car.drive() →
-→ "Toyota Corolla is driving normally 🚗"
+CarService stores the cars array.
 
-If you click Test Drive on Tesla Model 3 →
-→ calls overridden method ElectricCar.drive() →
-→ "Tesla Model 3 is driving silently ⚡"
+Both DashboardComponent and GarageComponent inject the same CarService (singleton by default).
 
-✅ This is runtime polymorphism in action:
-Even though the array is typed as Car[], at runtime Angular/TypeScript dispatches the actual method depending on the object’s type (Car vs. ElectricCar).
+If you accelerate/charge a car in Dashboard, the updated state is reflected in Garage too (shared instance).
+
+This is Angular’s dependency injection + service pattern at work.
+
+✅ Now you have a real Angular setup:
+
+Models → Car, ElectricCar
+
+Service → CarService (manages shared data)
+
+Components → Dashboard (interacts with cars), Garage (shows stored cars)

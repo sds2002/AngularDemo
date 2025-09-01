@@ -7,15 +7,5 @@ import { ElectricCar } from './models/electric-car.model';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  cars: Car[] = [
-    new Car('Toyota', 'Corolla'),
-    new ElectricCar('Tesla', 'Model 3')
-  ];
-
-  message: string = '';
-
-  testDrive(car: Car) {
-    // 🔹 At runtime, the correct drive() method is chosen
-    this.message = car.drive();
-  }
+ 
 }
