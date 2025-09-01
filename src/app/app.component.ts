@@ -6,12 +6,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 })
 export class AppComponent {
   isLoggedIn = true;
-  username = 'Deepa';
-
-  logout() {
-    this.isLoggedIn = false;
-  }
 }
-// ng-container does not create extra DOM elements.
 
-// It’s just a logical wrapper for directives.
+// Open browser dev tools → you’ll see that ng-container doesn’t appear 
+// in the DOM, only the <p> is rendered.

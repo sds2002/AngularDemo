@@ -1,4 +1,12 @@
+<!-- app.component.html -->
+<h2>Welcome to ng-container Example</h2>
+
+<!-- Without ng-container (adds extra <div>) -->
+<div *ngIf="isLoggedIn">
+  <p>User is logged in!</p>
+</div>
+
+<!-- With ng-container (no extra element in DOM) -->
 <ng-container *ngIf="isLoggedIn">
-  <p>Welcome {{ username }}</p>
-  <button (click)="logout()">Logout</button>
+  <p>User is logged in using ng-container!</p>
 </ng-container>
