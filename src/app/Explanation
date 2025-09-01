@@ -1,25 +1,15 @@
-Explanation
+What is AsyncPipe?
 
-Built-in Pipes are pure functions that transform data.
+Angular’s AsyncPipe is used to subscribe to Observables or Promises directly in templates.
 
-uppercase → converts string to uppercase
+It automatically subscribes and unsubscribes → prevents memory leaks.
 
-date → formats a Date object
+It also updates the view whenever new data is emitted.
 
-currency → formats number as currency
+🛠 Hands-on Example: AsyncPipe
 
-percent → converts number to percentage
+We’ll show both:
 
-slice → slices array/string
+Observable (interval)
 
-json → pretty-prints object
-
-Async Pipe
-
-Handles Observable and Promise automatically.
-
-Subscribes/unsubscribes automatically → no memory leaks.
-
-Useful for data coming from APIs (HttpClient).
-
-✅ With this, you now understand Built-in Pipes + Async Pipe in Angular with full code and output.
+Promise (delayed response)
