@@ -1,17 +1,69 @@
-Now your Angular app covers:
+Angular CLI Overview
+----------------------
+Angular CLI is a command-line tool to create, manage, and build Angular applications efficiently. It automates many tasks, like generating components, services, modules, and building the app for deployment.
 
-Basic Types (string, number, boolean)
+npm install -g @angular/cli
+ng version
+ng new my-app
+ng serve
 
-Arrays & Tuples
+2. Modules
+-----------
+Modules group related code together. Every Angular app has at least one module: AppModule.
+ng generate module user / ng g m user
+ng generate component header / ng g c header
+ng g c footer --inline-template --inline-style
 
-Enums
+4. Services
+-----------
+Services hold business logic or shared data.
 
-Any & Unknown
+ng generate service data / ng g s data
 
-Interfaces
+5. Routing
+-----------
+Routing allows navigation between different components.
 
-Function Types
+CLI Example to generate a module with routing:
+ng g m dashboard --routing
 
-Type Aliases & Union Types
+6. Directives
+-------------
+Directives are instructions to manipulate the DOM.
 
-HTTP + Interfaces
+Structural directives: *ngIf, *ngFor
+
+Attribute directives: [ngStyle], [ngClass]
+
+7. Pipes
+-----------
+Pipes transform data in templates.
+
+8. Data Binding
+----------------
+Angular supports several types:
+
+Interpolation: {{ title }}
+
+Property binding: [disabled]="isDisabled"
+
+Event binding: (click)="onClick()"
+
+Two-way binding: [(ngModel)]="name" (needs FormsModule)
+
+9. Dependency Injection
+--------------------------
+Angular uses DI to provide services to components.
+
+constructor(private dataService: DataService) { }
+
+10. Build & Deployment
+----------------------
+Build the project for production:
+
+ng build --prod
+
+
+Output in dist/my-app
+
+Ready to deploy on servers.

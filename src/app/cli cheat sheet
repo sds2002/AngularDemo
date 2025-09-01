@@ -1,0 +1,10 @@
+| Task               | CLI Command                     |
+| ------------------ | ------------------------------- |
+| Create new project | `ng new my-app`                 |
+| Serve app          | `ng serve`                      |
+| Generate component | `ng g c component-name`         |
+| Generate service   | `ng g s service-name`           |
+| Generate module    | `ng g m module-name`            |
+| Generate pipe      | `ng g pipe pipe-name`           |
+| Generate directive | `ng g directive directive-name` |
+| Build app          | `ng build --prod`               |
