@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Car } from './models/car.model';  // ✅ Import your Car class
+import { Car } from './models/car.model';
+import { ElectricCar } from './models/electric-car.model';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +8,14 @@ import { Car } from './models/car.model';  // ✅ Import your Car class
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // ✅ Properties used in template
+  // Normal Car
   car1 = new Car('Toyota', 'Corolla', 2021);
-  car2 = new Car('Tesla', 'Model 3', 2023);
+
+  // Electric Car (inherits from Car)
+  ev1 = new ElectricCar('Tesla', 'Model 3', 2023);
+
   message: string = '';
 
-  // ✅ Methods used in template
   accelerateCar(car: Car) {
     car.drive(20);
     this.message = `${car.displayInfo()} is now at ${car.getSpeed()} km/h.`;
@@ -21,5 +24,10 @@ export class AppComponent {
   brakeCar(car: Car) {
     car.brake(10);
     this.message = `${car.displayInfo()} slowed down to ${car.getSpeed()} km/h.`;
+  }
+
+  chargeEV(ev: ElectricCar) {
+    ev.chargeBattery(20);
+    this.message = `${ev.displayInfo()} (charged battery)`;
   }
 }

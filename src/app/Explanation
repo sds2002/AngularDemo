@@ -1,32 +1,15 @@
-What is a Class in TypeScript?
-
-A class is a blueprint for creating objects.
-It defines data (properties/fields) and logic (methods) that belong to the object.
-
 Explanation
 
-Data (Properties / Fields)
+ElectricCar extends Car → inherits all Car properties/methods.
 
-brand, model, year → public (can be accessed outside).
+super(...) → calls parent constructor.
 
-speed → private (hidden, accessible only inside the class).
+Method overriding → displayInfo() was redefined to show battery info.
 
-Constructor
+New methods → chargeBattery() and useBattery() only exist in ElectricCar.
 
-Runs automatically when new Car(...) is called.
+✅ Now you have inheritance in Angular with TypeScript classes:
 
-Initializes properties.
+Base Car → normal cars.
 
-Methods (Logic)
-
-drive() → increases speed.
-
-brake() → decreases speed safely (never negative).
-
-getSpeed() → exposes speed in a controlled way.
-
-displayInfo() → prints details.
-
-Encapsulation
-
-We used private for speed so outside code cannot directly modify it → protects logic.
+Derived ElectricCar → EV-specific logic.

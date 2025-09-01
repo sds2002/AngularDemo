@@ -1,16 +1,22 @@
-<h1>🚗 Car Dashboard</h1>
+<h1>🚗 Car Dashboard with Inheritance</h1>
 
+<!-- Normal Car -->
 <div>
   <h2>{{ car1.displayInfo() }}</h2>
   <button (click)="accelerateCar(car1)">Accelerate</button>
   <button (click)="brakeCar(car1)">Brake</button>
 </div>
 
+<hr>
+
+<!-- Electric Car -->
 <div>
-  <h2>{{ car2.displayInfo() }}</h2>
-  <button (click)="accelerateCar(car2)">Accelerate</button>
-  <button (click)="brakeCar(car2)">Brake</button>
+  <h2>{{ ev1.displayInfo() }}</h2>
+  <button (click)="accelerateCar(ev1)">Accelerate</button>
+  <button (click)="brakeCar(ev1)">Brake</button>
+  <button (click)="chargeEV(ev1)">Charge Battery</button>
 </div>
 
 <hr>
+
 <p><strong>Status:</strong> {{ message }}</p>
