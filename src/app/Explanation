@@ -1,9 +1,17 @@
-⚡ Key Takeaways
+Explanation
 
-Custom Pipes = reusable transformation logic in templates.
+items: array we want to filter.
 
-Must implement PipeTransform and define transform() method.
+searchText: the text user types.
 
-Can accept arguments (like truncate:15).
+field: the object property to filter on (e.g., name).
 
-Use them when built-in pipes don’t fit your needs.
+pure: false: tells Angular to re-run the pipe when input changes (important for filtering).
+
+Key Takeaways
+
+Custom filter pipes are powerful for quick search functionality.
+
+pure: false ensures the pipe runs on every keystroke.
+
+Always pass the field (like 'name') so pipe is reusable for multiple properties.

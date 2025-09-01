@@ -1,1 +1,11 @@
-<p><b>Truncated:</b> {{ 'Angular makes frontend development easier' | truncate:15 }}</p>
+<h1>Custom Filter Pipe Demo</h1>
+
+<!-- Search Box -->
+<input type="text" [(ngModel)]="searchText" placeholder="Search by name" />
+
+<!-- Display Filtered Users -->
+<ul>
+  <li *ngFor="let user of users | filter:searchText:'name'">
+    {{ user.name }} - {{ user.role }}
+  </li>
+</ul>

@@ -7,6 +7,7 @@ import { HelloComponent } from './hello/hello.component';
 import { CardComponent } from './card/card.component';
 import { ReversePipe } from './reverse.pipe';
 import { TruncatePipe } from './truncate.pipe';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { TruncatePipe } from './truncate.pipe';
     HelloComponent,
     CardComponent,
     ReversePipe,
-    TruncatePipe
+    TruncatePipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
