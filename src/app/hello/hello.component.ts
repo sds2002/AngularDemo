@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./hello.component.css']
 })
 export class HelloComponent {
+  username: string = 'Infotel';
 
+  changeName() {
+    this.username = 'Angular Learner';
+  }
 }
