@@ -1,9 +1,6 @@
-<!-- Lets you create reusable components where the parent provides the inner content. -->
-<app-card>
-  <h2>Angular Templates</h2>
-  <p>This is inside a projected card component!</p>
-</app-card>
+<ul>
+  <li *ngFor="let item of items; trackBy: trackByFn">{{ item.name }}</li>
+  <!-- <li *ngFor="let item of items">{{ item }}</li> -->
+</ul>
 
-<app-card>
-  <p>Another card with custom content.</p>
-</app-card>
+<button (click)="updateList()">Update List</button>
