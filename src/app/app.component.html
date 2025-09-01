@@ -1,8 +1,4 @@
-<!-- Normal access (works fine) -->
-<p>User City: {{ user.address.city }}</p>
+<input #nameInput placeholder="Enter your name">
+<button (click)="username = nameInput.value">Update</button>
 
-<!-- Without safe navigation - causes ERROR if nullUser is null -->
-<!-- <p>{{ nullUser.address.city }}</p> -->
-
-<!-- With safe navigation -->
-<p>Safe City: {{ nullUser?.address?.city }}</p>
+<p>Hello {{ username }}</p>
