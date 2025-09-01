@@ -1,12 +1,40 @@
-<!-- Grouping Multiple Elements in *ngIf -->
-<!-- Notice that inside ng-container, we grouped two elements (p + button) under a single *ngIf. Without ng-container, Angular would throw an error (since you can’t apply *ngIf to multiple elements directly). -->
+<div class="container">
+  <h2>ngTemplateOutlet Example</h2>
 
-<ng-container *ngIf="isLoggedIn; else loggedOut">
-  <p>Welcome back!</p>
-  <button>Logout</button>
-</ng-container>
+  <!-- Button to toggle -->
+  <button (click)="toggleView()">
+    Switch to {{ showDetailed ? 'Simple' : 'Detailed' }} View
+  </button>
 
-<ng-template #loggedOut>
-  <p>Please login to continue</p>
-  <button>Login</button>
-</ng-template>
+  <hr />
+
+  <!-- Use ngTemplateOutlet -->
+  <ng-container 
+    *ngTemplateOutlet="showDetailed ? detailedCard : simpleCard; context: { $implicit: user }">
+  </ng-container>
+
+  <!-- Simple card template -->
+  <ng-template #simpleCard let-user>
+    <div class="card simple">
+      <h3>{{ user.name }}</h3>
+      <p>{{ user.role }}</p>
+    </div>
+  </ng-template>
+
+  <!-- Detailed card template -->
+  <ng-template #detailedCard let-user>
+    <div class="card detailed">
+      <h3>{{ user.name }} ({{ user.role }})</h3>
+      <p>{{ user.description }}</p>
+      <small>Template: Detailed View</small>
+    </div>
+  </ng-template>
+</div>
+
+
+
+<!-- Initially shows the Detailed Card (with description).
+
+When clicking the button, it switches to the Simple Card (only name + role).
+
+Clicking again toggles back. -->
