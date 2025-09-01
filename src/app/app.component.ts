@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  languages = ['Angular', 'React', 'Vue', 'Svelte'];
+  users = [
+    { name: 'Deepa', role: 'Frontend Developer' },
+    { name: 'Arun', role: 'Backend Developer' },
+    { name: 'Priya', role: 'Fullstack Engineer' }
+  ];
 }

@@ -1,14 +1,17 @@
-<ng-template #itemTemplate let-item>
-  <li>{{ item }}</li>
-</ng-template>
+<div class="container">
+  <h2>Template Input Variables (let- Example)</h2>
 
-<ul>
-  <ng-container *ngFor="let lang of languages">
-    <ng-container *ngTemplateOutlet="itemTemplate; context:{ $implicit: lang }"></ng-container>
-  </ng-container>
-</ul>
+  <!-- Loop through users and use ngTemplateOutlet -->
+  <div *ngFor="let user of users; let i = index">
+    <ng-container 
+      *ngTemplateOutlet="userTemplate; context: { $implicit: user, index: i }">
+    </ng-container>
+  </div>
 
-
-<!-- let-item → local variable inside template.
-
-$implicit → default value passed to template. -->
+  <!-- Define the reusable template -->
+  <ng-template #userTemplate let-person let-idx="index">
+    <div class="card">
+      <strong>{{ idx + 1 }}.</strong> {{ person.name }} - {{ person.role }}
+    </div>
+  </ng-template>
+</div>

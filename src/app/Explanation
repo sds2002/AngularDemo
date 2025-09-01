@@ -1,0 +1,28 @@
+Explanation
+
+Passing Context
+
+context: { $implicit: user, index: i }
+
+
+$implicit: user → makes user the default input for the template.
+
+index: i → passes the loop index as a named variable.
+
+Capturing Context with let-
+
+<ng-template #userTemplate let-person let-idx="index">
+
+
+let-person → captures $implicit (so person = user).
+
+let-idx="index" → captures the index property.
+
+Usage in Template
+
+{{ idx + 1 }}. {{ person.name }} - {{ person.role }}
+
+
+idx is the loop index (0,1,2).
+
+person is the user object.
