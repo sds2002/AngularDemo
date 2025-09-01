@@ -1,16 +1,25 @@
 import { Component } from '@angular/core';
-import { Observable, interval, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Car } from './models/car.model';  // ✅ Import your Car class
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  parentMessage = "Hello Child, this is Parent!";
-  messageFromChild = '';
+  // ✅ Properties used in template
+  car1 = new Car('Toyota', 'Corolla', 2021);
+  car2 = new Car('Tesla', 'Model 3', 2023);
+  message: string = '';
 
-  receiveMessage($event: string) {
-    this.messageFromChild = $event;
+  // ✅ Methods used in template
+  accelerateCar(car: Car) {
+    car.drive(20);
+    this.message = `${car.displayInfo()} is now at ${car.getSpeed()} km/h.`;
+  }
+
+  brakeCar(car: Car) {
+    car.brake(10);
+    this.message = `${car.displayInfo()} slowed down to ${car.getSpeed()} km/h.`;
   }
 }

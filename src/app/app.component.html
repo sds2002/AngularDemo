@@ -1,11 +1,16 @@
-<div class="parent-box">
-  <h2>Parent Component</h2>
+<h1>🚗 Car Dashboard</h1>
 
-  <!-- Passing data to Child using Input -->
-  <app-child 
-    [messageFromParent]="parentMessage" 
-    (messageEvent)="receiveMessage($event)">
-  </app-child>
-
-  <p><strong>Message from Child:</strong> {{ messageFromChild }}</p>
+<div>
+  <h2>{{ car1.displayInfo() }}</h2>
+  <button (click)="accelerateCar(car1)">Accelerate</button>
+  <button (click)="brakeCar(car1)">Brake</button>
 </div>
+
+<div>
+  <h2>{{ car2.displayInfo() }}</h2>
+  <button (click)="accelerateCar(car2)">Accelerate</button>
+  <button (click)="brakeCar(car2)">Brake</button>
+</div>
+
+<hr>
+<p><strong>Status:</strong> {{ message }}</p>
