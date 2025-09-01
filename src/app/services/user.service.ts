@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { User } from '../models/user.model';
 
 @Injectable({
@@ -22,7 +22,11 @@ export class UserService {
         username: user.username,
         phone: user.phone,
         website: user.website
-      })))
+      }))),
+      catchError(err => {
+        console.error('Error fetching users:', err);
+        return of([]); // Return empty array if API fails
+      })
     );
   }
 }

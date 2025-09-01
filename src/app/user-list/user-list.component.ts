@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
 import { UserService } from '../services/user.service';
 
@@ -7,25 +8,13 @@ import { UserService } from '../services/user.service';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css']
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent {
 
-  users: User[] = [];
-  loading: boolean = true;
+  users$: Observable<User[]>; // Observable instead of array
   error: string = '';
 
-  constructor(private userService: UserService) { }
-
-  ngOnInit(): void {
-    this.userService.getUsers().subscribe({
-      next: (data) => {
-        this.users = data;
-        this.loading = false;
-      },
-      error: (err) => {
-        this.error = 'Failed to load users';
-        this.loading = false;
-      }
-    });
+  constructor(private userService: UserService) {
+    this.users$ = this.userService.getUsers();
   }
 
 }

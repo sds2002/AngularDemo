@@ -1,9 +1,9 @@
-Key Takeaways
+Benefits of async Pipe Version
 
-Interfaces + HTTP: Ensures API response is typed correctly.
+Less code: No manual subscribe or unsubscribe.
 
-Observable subscription: Handles async data safely.
+Automatic cleanup: Prevents memory leaks.
 
-Error handling: Using subscribe({ next, error }) to manage API failures.
+Reactive style: Works well with RxJS streams.
 
-Scalable: Easy to extend User interface if API adds more fields.
+Type-safe: Still uses the User interface everywhere.
