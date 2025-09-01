@@ -7,9 +7,12 @@ import { Car } from '../models/car.model';
   templateUrl: './garage.component.html'
 })
 export class GarageComponent {
-  cars: Car[];
+  cars: Car[] = [];
 
   constructor(private carService: CarService) {
-    this.cars = this.carService.getCars();
+    // ✅ subscribe to the cars$ stream
+    this.carService.cars$.subscribe(cars => {
+      this.cars = cars;
+    });
   }
 }

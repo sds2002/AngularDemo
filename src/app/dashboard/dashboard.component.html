@@ -1,4 +1,5 @@
 <h2>🚗 Dashboard</h2>
+
 <div *ngFor="let car of cars">
   <p>{{ car.displayInfo() }}</p>
   <button (click)="accelerateCar(car)">Accelerate</button>
@@ -6,4 +7,7 @@
   <button (click)="chargeIfEV(car)">Charge (only EVs)</button>
   <hr>
 </div>
+
+<button (click)="addNewCar()">➕ Add New Car</button>
+
 <p><strong>Status:</strong> {{ message }}</p>

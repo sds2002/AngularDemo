@@ -1,17 +1,17 @@
 How It Works
 
-CarService stores the cars array.
+CarService holds cars in a BehaviorSubject.
 
-Both DashboardComponent and GarageComponent inject the same CarService (singleton by default).
+Components subscribe to cars$.
 
-If you accelerate/charge a car in Dashboard, the updated state is reflected in Garage too (shared instance).
+Whenever a car is added/updated, carsSubject.next() pushes the latest array to all subscribers.
 
-This is Angular’s dependency injection + service pattern at work.
+Both Dashboard and Garage stay in sync automatically.
 
-✅ Now you have a real Angular setup:
+✅ Now you have reactive runtime polymorphism in Angular:
 
-Models → Car, ElectricCar
+Shared state via service
 
-Service → CarService (manages shared data)
+Reactive updates with RxJS
 
-Components → Dashboard (interacts with cars), Garage (shows stored cars)
+Multiple components see changes instantly
