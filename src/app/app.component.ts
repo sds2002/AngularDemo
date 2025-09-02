@@ -1,12 +1,9 @@
-// app.component.ts
-import { Component, OnInit } from '@angular/core';
+// Dummy content for src/app/app.component.ts
+import { Component } from '@angular/core';
+
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html', // External template file
-  styleUrls: ['./app.component.css']   // Optional styles file
+selector: 'app-root',
+templateUrl: './app.component.html'
 })
-export class AppComponent {
-
-  
-}
+export class AppComponent {}
